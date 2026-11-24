@@ -1,0 +1,388 @@
+:root {
+  --blanco: #ffffff;
+  --marino: #0b1f3a;
+  --verde: #2f6b3f;
+  --verde-osc: #214d2d;
+  --verde-claro: #e9f2ea;
+  --gris: #4a5568;
+  --linea: #d9e2dc;
+
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --sans: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+
+  --nav: 230px;
+  --panel: 380px;
+}
+
+/* Modo daltonismo: el verde pasa a naranja oscuro (se distingue del azul marino) */
+html.dalt {
+  --verde: #a84300;
+  --verde-osc: #7d3200;
+  --verde-claro: #fdf0e5;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: var(--sans);
+  color: var(--marino);
+  background: var(--blanco);
+  line-height: 1.55;
+}
+
+a {
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Foco visible para quien navega con teclado */
+:focus-visible {
+  outline: 3px solid var(--marino);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 3px var(--blanco);
+}
+
+/* Enlace "Saltar al contenido": oculto hasta que recibe el foco */
+.sr {
+  position: absolute;
+  left: -9999px;
+}
+
+.sr:focus {
+  left: 1rem;
+  top: 1rem;
+  z-index: 99;
+  background: var(--blanco);
+  padding: .5rem .8rem;
+}
+
+/* Logo */
+.logo {
+  display: block;
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  text-decoration: none;
+}
+
+.logo span {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 400;
+}
+
+/* Menú lateral */
+.top {
+  display: none;
+}
+
+.side {
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 30;
+  width: var(--nav);
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+  overflow-y: auto;
+  border-right: 1px solid var(--linea);
+  background: var(--blanco) ;
+}
+
+.side nav ul {
+  margin-top: 2rem;
+  display: grid;
+  gap: .25rem;
+}
+
+.side nav a {
+  display: block;
+  padding: .5rem .75rem;
+  border-left: 3px solid transparent;
+  color: var(--gris);
+  text-decoration: none;
+}
+
+.side nav a:hover {
+  color: var(--marino);
+  border-left-color: var(--verde);
+  background: var(--verde-claro);
+}
+
+.side small {
+  color: var(--gris);
+  font-size: .8rem;
+}
+
+/* Sección Accesibilidad (en el menú) */
+.Accesibilidad {
+  margin-top: 2rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--linea);
+  display: grid;
+  gap: .55rem;
+}
+
+.Accesibilidad h2 {
+  font-family: var(--sans);
+  font-size: .95rem;
+  font-weight: 600;
+}
+
+.Accesibilidad-row {
+  display: flex;
+  gap: .4rem;
+}
+
+.Accesibilidad button {
+  border: 1px solid var(--marino);
+  background: var(--blanco);
+  color: var(--marino);
+  padding: .5rem .7rem;
+  font: inherit;
+  font-size: .9rem;
+  cursor: pointer;
+}
+
+.Accesibilidad-row button {
+  flex: 1;
+}
+
+.Accesibilidad button:hover:not(:disabled),
+.Accesibilidad button[aria-pressed="true"] {
+  background: var(--marino);
+  color: var(--blanco);
+}
+
+.Accesibilidad button:disabled {
+  opacity: .4;
+  cursor: default;
+}
+
+/* Layout principal: panel de rutas + mapa */
+.app {
+  margin-left: var(--nav);
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.contenido {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: var(--panel) minmax(0, 1fr);
+}
+
+.panel {
+  overflow-y: auto;
+  padding: 1.5rem 1.5rem 2rem;
+  border-right: 1px solid var(--linea);
+}
+
+.panel h1 {
+  font-family: var(--serif);
+  font-size: 1.7rem;
+  line-height: 1.15;
+}
+
+.lead {
+  margin-top: .75rem;
+  color: var(--gris);
+  max-width: 42ch;
+}
+
+.titulo-lista {
+  margin: 1.75rem 0 .75rem;
+  font-family: var(--serif);
+  font-size: 1.25rem;
+}
+
+/* Tarjeta de ruta */
+.rutas {
+  display: grid;
+  gap: .8rem;
+}
+
+.ruta {
+  padding: .9rem 1rem;
+  border: 1px solid var(--linea);
+  border-left: 4px solid var(--verde);
+  background: var(--blanco);
+}
+
+.ruta h3 {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  line-height: 1.25;
+}
+
+.ruta-meta {
+  margin-top: .5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .35rem .9rem;
+  color: var(--gris);
+  font-size: .9rem;
+}
+
+.chip {
+  padding: .1rem .55rem;
+  border: 1.5px solid var(--marino);
+  color: var(--marino);
+  font-weight: 600;
+  font-size: .85rem;
+}
+
+/* Zona del mapa (Leaflet se pinta encima en la fase 2) */
+.mapa {
+  position: relative;
+  display: grid;
+  place-items: center;
+  background: var(--verde-claro)  center / cover no-repeat;
+}
+
+.mapa-vacio {
+  padding: 1rem;
+  color: var(--marino);
+  text-align: center;
+}
+
+/* Pie */
+.foot {
+  background: var(--marino);
+  color: var(--blanco);
+  padding: .6rem 1.5rem;
+  font-size: .85rem;
+}
+
+/* Responsive: móvil y tableta (hasta 900 px) */
+@media (max-width: 900px) {
+  .top {
+    display: flex;
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 40;
+    height: 60px;
+    padding: 0 1rem 0 1.25rem;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--blanco);
+    border-bottom: 1px solid var(--linea);
+  }
+
+  .top .logo {
+    display: flex;
+    align-items: baseline;
+    gap: .4rem;
+    font-size: 1.15rem;
+  }
+
+  .top .logo span {
+    font-size: .9rem;
+  }
+
+  .burger {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-content: center;
+    gap: 6px;
+    background: none;
+    border: 0;
+    cursor: pointer;
+  }
+
+  .burger span {
+    display: block;
+    width: 26px;
+    height: 2px;
+    background: var(--marino);
+    transition: transform .3s, opacity .3s;
+  }
+
+  .burger[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .burger[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .burger[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* El menú es un cajón que entra desde la izquierda.
+     visibility:hidden evita que el teclado llegue a enlaces fuera de pantalla. */
+  .side {
+    width: min(78vw, 300px);
+    padding-top: 5rem;
+    z-index: 35;
+    transform: translateX(-100%);
+    visibility: hidden;
+    transition: transform .35s, visibility 0s .35s;
+  }
+
+  .side .logo {
+    display: none;
+  }
+
+  .side.open {
+    transform: none;
+    visibility: visible;
+    transition: transform .35s;
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .45);
+  }
+
+  /* Una columna: mapa arriba, rutas debajo */
+  .app {
+    margin-left: 0;
+    height: auto;
+    min-height: 100dvh;
+    padding-top: 60px;
+  }
+
+  .contenido {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mapa {
+    order: -1;
+    height: 55dvh;
+    min-height: 320px;
+  }
+
+  .panel {
+    overflow: visible;
+    border-right: 0;
+    padding: 1.25rem 1.25rem 2rem;
+  }
+}
+
+/* Respeta la preferencia del sistema de reducir el movimiento */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}

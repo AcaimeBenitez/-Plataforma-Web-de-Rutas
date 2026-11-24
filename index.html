@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Rutas a pie geolocalizadas que salen del Parque Tecnológico de Fuerteventura, en Puerto del Rosario.">
+<title>Sendas de Fuerteventura: rutas a pie desde el Parque Tecnológico</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="sr" href="#contenido">Saltar al contenido</a>
+
+<header class="top">
+  <a class="logo" href="index.html">Sendas<span>de Fuerteventura</span></a>
+  <button class="burger" id="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<aside class="side" id="menu">
+  <div>
+    <a class="logo" href="index.html">Sendas<span>de Fuerteventura</span></a>
+    <nav aria-label="Principal">
+      <ul>
+        <li><a href="#rutas">Rutas</a></li>
+        <li><a href="#mapa">Mapa</a></li>
+      </ul>
+    </nav>
+
+    <section class="Accesibilidad" aria-labelledby="Accesibilidad">
+      <h2 id="Accesibilidad">Accesibilidad</h2>
+      <div class="Accesibilidad-row" role="group" aria-label="Tamaño del texto">
+        <button type="button" id="tm" aria-label="Reducir tamaño del texto">A−</button>
+        <button type="button" id="tn" aria-label="Tamaño de texto normal">A</button>
+        <button type="button" id="tp" aria-label="Aumentar tamaño del texto">A+</button>
+      </div>
+      <button type="button" id="dalt" aria-pressed="false">Modo daltonismo</button>
+      <button type="button" id="leer" aria-pressed="false">Escuchar página</button>
+    </section>
+  </div>
+  <small>Todas las rutas salen del Parque Tecnológico</small>
+</aside>
+
+<div class="app">
+  <main class="contenido" id="contenido">
+
+    <section class="panel" id="rutas" aria-labelledby="t-rutas" data-leer>
+      <h1 id="t-rutas">Rutas a pie desde el Parque Tecnológico</h1>
+      <p class="lead">Todas las rutas salen del Parque Tecnológico de Fuerteventura, en Los Estancos (Puerto del Rosario). Elige una para verla en el mapa.</p>
+
+      <h2 class="titulo-lista" id="t-lista">Rutas disponibles</h2>
+      <ul class="rutas" aria-labelledby="t-lista">
+        <li class="ruta">
+          <h3>Los Estancos y Tetir</h3>
+          <p class="ruta-meta"><span>Distancia: —</span><span>Desnivel: —</span><span class="chip">Dificultad: —</span></p>
+        </li>
+        <li class="ruta">
+          <h3>Barranco de Río Cabras y Puerto del Rosario</h3>
+          <p class="ruta-meta"><span>Distancia: —</span><span>Desnivel: —</span><span class="chip">Dificultad: —</span></p>
+        </li>
+        <li class="ruta">
+          <h3>Casillas del Ángel</h3>
+          <p class="ruta-meta"><span>Distancia: —</span><span>Desnivel: —</span><span class="chip">Dificultad: —</span></p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="mapa" id="mapa" aria-label="Mapa interactivo de rutas" tabindex="-1">
+      <p class="mapa-vacio">El mapa interactivo se mostrará aquí.</p>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <p>© 2026 Sendas de Fuerteventura. Trabajo individual de Acaimo Benítez (DAW).</p>
+  </footer>
+</div>
+
+<script type="module" src="js/main.js"></script>
+<script type="module" src="js/accesibilidad.js"></script>
+</body>
+</html>
