@@ -1,4 +1,5 @@
 import { iniciarAccesibilidad } from './accesibilidad.js';
+import { iniciarMapa } from './mapa.js';
 
 //  Menú hamburguesa (móvil) 
 const menu = document.getElementById('menu');
@@ -28,3 +29,4 @@ menu.addEventListener('click', (e) => {
 });
 
 iniciarAccesibilidad();
+iniciarMapa();

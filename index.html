@@ -5,12 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Rutas a pie geolocalizadas que salen del Parque Tecnológico de Fuerteventura, en Puerto del Rosario.">
 <title>Sendas de Fuerteventura: rutas a pie desde el Parque Tecnológico</title>
+<!-- Leaflet (mapa). Va antes de style.css para que nuestros estilos puedan ajustarlo -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <a class="sr" href="#contenido">Saltar al contenido</a>
 
+<!-- Barra superior: solo se ve en móvil -->
 <header class="top">
   <a class="logo" href="index.html">Sendas<span>de Fuerteventura</span></a>
   <button class="burger" id="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
@@ -18,6 +22,7 @@
   </button>
 </header>
 
+<!-- Menú lateral (hamburguesa en móvil) -->
 <aside class="side" id="menu">
   <div>
     <a class="logo" href="index.html">Sendas<span>de Fuerteventura</span></a>
@@ -45,11 +50,13 @@
 <div class="app">
   <main class="contenido" id="contenido">
 
+    <!-- Panel de rutas: lo que lee "Escuchar página" -->
     <section class="panel" id="rutas" aria-labelledby="t-rutas" data-leer>
       <h1 id="t-rutas">Rutas a pie desde el Parque Tecnológico</h1>
       <p class="lead">Todas las rutas salen del Parque Tecnológico de Fuerteventura, en Los Estancos (Puerto del Rosario). Elige una para verla en el mapa.</p>
 
       <h2 class="titulo-lista" id="t-lista">Rutas disponibles</h2>
+      <!-- Tarjetas provisionales: en la fase 3 se generan desde los archivos GeoJSON -->
       <ul class="rutas" aria-labelledby="t-lista">
         <li class="ruta">
           <h3>Los Estancos y Tetir</h3>
@@ -66,8 +73,10 @@
       </ul>
     </section>
 
+    <!-- Mapa: lo dibuja js/mapa.js con Leaflet dentro de #mapa-lienzo -->
     <section class="mapa" id="mapa" aria-label="Mapa interactivo de rutas" tabindex="-1">
-      <p class="mapa-vacio">El mapa interactivo se mostrará aquí.</p>
+      <div class="mapa-lienzo" id="mapa-lienzo"></div>
+      <p class="mapa-vacio" id="mapa-aviso">Cargando el mapa…</p>
     </section>
 
   </main>
@@ -77,7 +86,8 @@
   </footer>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
 <script type="module" src="js/main.js"></script>
-<script type="module" src="js/accesibilidad.js"></script>
 </body>
 </html>

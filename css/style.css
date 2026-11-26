@@ -100,7 +100,7 @@ ul {
   gap: 1.5rem;
   overflow-y: auto;
   border-right: 1px solid var(--linea);
-  background: var(--blanco) ;
+  background: var(--blanco);
 }
 
 .side nav ul {
@@ -254,7 +254,7 @@ ul {
   position: relative;
   display: grid;
   place-items: center;
-  background: var(--verde-claro)  center / cover no-repeat;
+  background: var(--verde-claro) center / cover no-repeat;
 }
 
 .mapa-vacio {
@@ -385,4 +385,59 @@ ul {
     animation-duration: .01ms !important;
     transition-duration: .01ms !important;
   }
+}
+
+
+/* ==========================================================
+   Fase 2: mapa Leaflet
+   ========================================================== */
+
+/* El lienzo ocupa toda la zona del mapa; Leaflet dibuja dentro */
+.mapa-lienzo {
+  position: absolute;
+  inset: 0;
+}
+
+/* Foco hacia dentro para que el borde no se recorte */
+.mapa-lienzo:focus-visible {
+  outline-offset: -3px;
+}
+
+.leaflet-container {
+  font-family: var(--sans);
+}
+
+/* Contraste AA: enlaces de la atribución y de los popups en azul marino */
+.leaflet-container a {
+  color: var(--marino);
+}
+
+.leaflet-control-attribution {
+  background: rgba(255, 255, 255, .92);
+}
+
+/* Marcador del Parque Tecnológico (gota verde con borde blanco) */
+.marcador-origen {
+  background: none;
+  border: 0;
+}
+
+.marcador-origen .pin {
+  display: block;
+  width: 26px;
+  height: 26px;
+  margin: 2px;
+  background: var(--verde);
+  border: 3px solid var(--blanco);
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, .45);
+}
+
+.leaflet-popup-content {
+  color: var(--marino);
+}
+
+.leaflet-popup-content p {
+  margin: .25rem 0 0;
 }
