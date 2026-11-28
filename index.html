@@ -50,27 +50,55 @@
 <div class="app">
   <main class="contenido" id="contenido">
 
-    <!-- Panel de rutas: lo que lee "Escuchar página" -->
-    <section class="panel" id="rutas" aria-labelledby="t-rutas" data-leer>
-      <h1 id="t-rutas">Rutas a pie desde el Parque Tecnológico</h1>
-      <p class="lead">Todas las rutas salen del Parque Tecnológico de Fuerteventura, en Los Estancos (Puerto del Rosario). Elige una para verla en el mapa.</p>
+    <!-- Panel de rutas. Los bloques con data-leer son los que lee "Escuchar página" -->
+    <section class="panel" id="rutas" aria-labelledby="t-rutas">
+      <div data-leer>
+        <h1 id="t-rutas">Rutas a pie desde el Parque Tecnológico</h1>
+        <p class="lead">Todas las rutas salen del Parque Tecnológico de Fuerteventura, en Los Estancos (Puerto del Rosario). Elige una para verla en el mapa.</p>
+      </div>
+
+      <p class="aviso-trazados"><strong>Aviso:</strong> los trazados y las altitudes son orientativos y no se han verificado sobre el terreno. No los uses para orientarte.</p>
+
+      <p class="aviso-conexion" id="aviso-conexion" role="status"></p>
+
+      <section class="ubicacion" aria-labelledby="t-ubicacion">
+        <h2 id="t-ubicacion">Tu ubicación</h2>
+        <div class="ubicacion-botones">
+          <button type="button" class="boton" id="btn-ubicacion" aria-pressed="false">Activar mi ubicación</button>
+          <button type="button" class="boton" id="btn-centrar" hidden>Centrar el mapa en mí</button>
+        </div>
+        <p class="ubicacion-estado" id="ubicacion-estado" role="status"></p>
+        <div id="ubicacion-datos" hidden>
+          <p id="d-origen"></p>
+          <p id="d-parada" hidden></p>
+          <p id="d-precision"></p>
+        </div>
+        <p class="ubicacion-nota">Tu posición se usa solo en tu navegador: esta web no la guarda ni la envía.</p>
+      </section>
+
+      <form class="filtros" id="filtros" aria-label="Filtrar rutas" hidden>
+        <label for="f-dificultad">Dificultad</label>
+        <select id="f-dificultad">
+          <option value="">Todas</option>
+          <option value="Fácil">Fácil</option>
+          <option value="Moderada">Moderada</option>
+          <option value="Difícil">Difícil</option>
+        </select>
+        <label for="f-distancia">Distancia máxima</label>
+        <select id="f-distancia">
+          <option value="">Sin límite</option>
+          <option value="5">5 km</option>
+          <option value="10">10 km</option>
+          <option value="15">15 km</option>
+        </select>
+        <button type="reset" class="boton">Quitar filtros</button>
+      </form>
 
       <h2 class="titulo-lista" id="t-lista">Rutas disponibles</h2>
-      <!-- Tarjetas provisionales: en la fase 3 se generan desde los archivos GeoJSON -->
-      <ul class="rutas" aria-labelledby="t-lista">
-        <li class="ruta">
-          <h3>Los Estancos y Tetir</h3>
-          <p class="ruta-meta"><span>Distancia: —</span><span>Desnivel: —</span><span class="chip">Dificultad: —</span></p>
-        </li>
-        <li class="ruta">
-          <h3>Barranco de Río Cabras y Puerto del Rosario</h3>
-          <p class="ruta-meta"><span>Distancia: —</span><span>Desnivel: —</span><span class="chip">Dificultad: —</span></p>
-        </li>
-        <li class="ruta">
-          <h3>Casillas del Ángel</h3>
-          <p class="ruta-meta"><span>Distancia: —</span><span>Desnivel: —</span><span class="chip">Dificultad: —</span></p>
-        </li>
-      </ul>
+      <p class="estado" id="rutas-estado" role="status">Cargando las rutas…</p>
+      <!-- Las tarjetas las crea js/rutas.js a partir de los archivos de data/ -->
+      <ul class="rutas" id="lista-rutas" aria-labelledby="t-lista" data-leer></ul>
+      <noscript><p>Activa JavaScript para ver las rutas.</p></noscript>
     </section>
 
     <!-- Mapa: lo dibuja js/mapa.js con Leaflet dentro de #mapa-lienzo -->

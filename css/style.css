@@ -189,6 +189,7 @@ ul {
 }
 
 .panel {
+  position: relative; /* sin esto, el texto .oculto de los botones alarga toda la página */
   overflow-y: auto;
   padding: 1.5rem 1.5rem 2rem;
   border-right: 1px solid var(--linea);
@@ -440,4 +441,185 @@ ul {
 
 .leaflet-popup-content p {
   margin: .25rem 0 0;
+}
+
+/* ==========================================================
+   Fase 3: rutas, filtros y líneas del mapa
+   ========================================================== */
+
+/* El atributo hidden gana siempre, aunque la clase use grid o flex */
+[hidden] {
+  display: none !important;
+}
+
+/* Texto solo para lectores de pantalla */
+.oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.aviso-trazados {
+  margin-top: 1rem;
+  padding: .6rem .8rem;
+  background: var(--verde-claro);
+  font-size: .9rem;
+}
+
+.filtros {
+  margin-top: 1.25rem;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: .5rem .75rem;
+}
+
+.filtros select {
+  min-height: 44px;
+  padding: .4rem .5rem;
+  border: 1px solid var(--marino);
+  background: var(--blanco);
+  color: var(--marino);
+  font: inherit;
+}
+
+.filtros .boton {
+  grid-column: 1 / -1;
+  justify-self: start;
+}
+
+.boton {
+  min-height: 44px;
+  padding: .45rem .9rem;
+  border: 1px solid var(--marino);
+  background: var(--blanco);
+  color: var(--marino);
+  font: inherit;
+  font-size: .9rem;
+  cursor: pointer;
+}
+
+.boton:hover,
+.boton[aria-pressed="true"] {
+  background: var(--marino);
+  color: var(--blanco);
+}
+
+.estado {
+  margin-bottom: .75rem;
+  color: var(--gris);
+  font-size: .9rem;
+}
+
+.ruta-desc,
+.ruta-trazo {
+  margin-top: .4rem;
+  color: var(--gris);
+  font-size: .9rem;
+}
+
+.ruta .boton {
+  margin-top: .6rem;
+}
+
+.ruta.activa {
+  border-color: var(--marino);
+  border-left-color: var(--verde);
+  background: var(--verde-claro);
+}
+
+.paradas {
+  margin-top: .75rem;
+  font-size: .9rem;
+}
+
+.paradas ol {
+  margin: .25rem 0 0 1.25rem;
+}
+
+/* Líneas del mapa. El CSS tiene prioridad sobre el color que pone Leaflet,
+   así el modo daltonismo también las cambia */
+.linea-borde {
+  stroke: var(--blanco);
+}
+
+.linea-ruta {
+  stroke: var(--verde);
+}
+
+.linea-ruta.activa {
+  stroke: var(--marino);
+}
+
+.punto-hito {
+  stroke: var(--marino);
+  fill: var(--blanco);
+  fill-opacity: 1;
+}
+
+@media (max-width: 900px) {
+  /* Al desplazarse hasta el mapa, que no lo tape la barra superior */
+  .mapa {
+    scroll-margin-top: 60px;
+  }
+}
+
+
+/* ==========================================================
+   Fase 4: ubicación y aviso de conexión
+   ========================================================== */
+
+.aviso-conexion:not(:empty) {
+  margin-top: 1rem;
+  padding: .6rem .8rem;
+  border: 2px solid var(--marino);
+  font-weight: 600;
+  font-size: .9rem;
+}
+
+.ubicacion {
+  margin-top: 1.25rem;
+  padding: .9rem 1rem;
+  border: 1px solid var(--linea);
+  font-size: .9rem;
+}
+
+.ubicacion h2 {
+  margin-bottom: .5rem;
+  font-family: var(--serif);
+  font-size: 1.1rem;
+}
+
+.ubicacion-botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.ubicacion p:not(:empty) {
+  margin-top: .5rem;
+}
+
+.ubicacion-nota {
+  color: var(--gris);
+  font-size: .8rem;
+}
+
+/* Punto del usuario: relleno azul marino con borde blanco
+   (las paradas son al revés: blancas con borde azul) */
+.punto-usuario {
+  stroke: var(--blanco);
+  stroke-width: 3;
+  fill: var(--marino);
+  fill-opacity: 1;
+}
+
+.circulo-precision {
+  stroke: var(--marino);
+  stroke-width: 1;
+  fill: var(--marino);
+  fill-opacity: .12;
 }

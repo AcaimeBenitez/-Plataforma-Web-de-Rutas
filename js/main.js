@@ -1,5 +1,7 @@
 import { iniciarAccesibilidad } from './accesibilidad.js';
 import { iniciarMapa } from './mapa.js';
+import { iniciarRutas } from './rutas.js';
+import { iniciarUbicacion, iniciarAvisoConexion } from './ubicacion.js';
 
 //  Menú hamburguesa (móvil) 
 const menu = document.getElementById('menu');
@@ -29,4 +31,9 @@ menu.addEventListener('click', (e) => {
 });
 
 iniciarAccesibilidad();
-iniciarMapa();
+// Si el mapa no carga, mapa vale null y la lista de rutas funciona igualmente
+const mapa = iniciarMapa();
+// La ubicación se prepara antes para que reciba los avisos de las rutas
+iniciarUbicacion(mapa);
+iniciarAvisoConexion();
+iniciarRutas(mapa);

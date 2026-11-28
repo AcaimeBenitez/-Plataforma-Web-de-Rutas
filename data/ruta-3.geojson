@@ -1,0 +1,9 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {"type": "Feature", "properties": {"tipo": "ruta", "id": "casillas", "nombre": "Casillas del Ángel", "descripcion": "Ruta de ida hacia el suroeste por el interior hasta Casillas del Ángel.", "aviso": "Trazado orientativo, no verificado sobre el terreno. Altitudes aproximadas."}, "geometry": {"type": "LineString", "coordinates": [[-13.892905, 28.523652, 170], [-13.9, 28.5225, 176], [-13.9075, 28.5195, 188], [-13.9145, 28.5165, 203], [-13.9215, 28.5135, 221], [-13.9285, 28.5105, 240], [-13.9355, 28.508, 258], [-13.9425, 28.505, 271], [-13.9495, 28.502, 252], [-13.956, 28.499, 234], [-13.9635, 28.4955, 218], [-13.971, 28.4918, 206]]}},
+    {"type": "Feature", "properties": {"tipo": "hito", "nombre": "Parque Tecnológico de Fuerteventura", "descripcion": "Punto de salida."}, "geometry": {"type": "Point", "coordinates": [-13.892905, 28.523652, 170]}},
+    {"type": "Feature", "properties": {"tipo": "hito", "nombre": "Punto más alto", "descripcion": "Cota máxima aproximada del recorrido."}, "geometry": {"type": "Point", "coordinates": [-13.9425, 28.505, 271]}},
+    {"type": "Feature", "properties": {"tipo": "hito", "nombre": "Casillas del Ángel", "descripcion": "Final de la ruta, en el pueblo."}, "geometry": {"type": "Point", "coordinates": [-13.971, 28.4918, 206]}}
+  ]
+}

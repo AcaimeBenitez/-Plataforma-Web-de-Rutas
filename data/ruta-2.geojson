@@ -1,0 +1,10 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {"type": "Feature", "properties": {"tipo": "ruta", "id": "rio-cabras", "nombre": "Barranco de Río Cabras y Puerto del Rosario", "descripcion": "Ruta de ida hacia el sur hasta el barranco, que se sigue hacia la costa antes de subir a la capital.", "aviso": "Trazado orientativo, no verificado sobre el terreno. Altitudes aproximadas."}, "geometry": {"type": "LineString", "coordinates": [[-13.892905, 28.523652, 170], [-13.8935, 28.515, 152], [-13.8945, 28.505, 135], [-13.8955, 28.495, 122], [-13.8965, 28.485, 112], [-13.897, 28.475, 65], [-13.89, 28.4735, 52], [-13.885, 28.4705, 42], [-13.878, 28.467, 28], [-13.872, 28.4647, 15], [-13.8685, 28.472, 35], [-13.8681, 28.4806, 48], [-13.8633, 28.493, 25], [-13.863, 28.4999, 23]]}},
+    {"type": "Feature", "properties": {"tipo": "hito", "nombre": "Parque Tecnológico de Fuerteventura", "descripcion": "Punto de salida."}, "geometry": {"type": "Point", "coordinates": [-13.892905, 28.523652, 170]}},
+    {"type": "Feature", "properties": {"tipo": "hito", "nombre": "Barranco de Río Cabras", "descripcion": "Llegada al barranco. Zona de interés para las aves."}, "geometry": {"type": "Point", "coordinates": [-13.897, 28.475, 65]}},
+    {"type": "Feature", "properties": {"tipo": "hito", "nombre": "Tramo bajo del barranco", "descripcion": "Se deja el cauce y se gira hacia el norte."}, "geometry": {"type": "Point", "coordinates": [-13.872, 28.4647, 15]}},
+    {"type": "Feature", "properties": {"tipo": "hito", "nombre": "Puerto del Rosario", "descripcion": "Final de la ruta, en la capital."}, "geometry": {"type": "Point", "coordinates": [-13.863, 28.4999, 23]}}
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {"type": "Feature", "properties": {"tipo": "ruta", "id": "tetir", "nombre": "Los Estancos y Tetir", "descripcion": "Ruta de ida hacia el oeste, en subida suave, hasta el pueblo de Tetir.", "aviso": "Trazado orientativo, no verificado sobre el terreno. Altitudes aproximadas."}, "geometry": {"type": "LineString", "coordinates": [[-13.892905, 28.523652, 170], [-13.8962, 28.5245, 175], [-13.9002, 28.5256, 182], [-13.9045, 28.5268, 192], [-13.9084, 28.5279, 200], [-13.9123, 28.5287, 208], [-13.9162, 28.5291, 219], [-13.9201, 28.5296, 232], [-13.924, 28.5302, 247], [-13.9279, 28.5308, 262], [-13.9309, 28.5313, 273], [-13.9336, 28.5318, 282]]}},
+    {"type": "Feature", "properties": {"tipo": "hito", "nombre": "Parque Tecnológico de Fuerteventura", "descripcion": "Punto de salida."}, "geometry": {"type": "Point", "coordinates": [-13.892905, 28.523652, 170]}},
+    {"type": "Feature", "properties": {"tipo": "hito", "nombre": "Los Estancos", "descripcion": "Paso por la zona de Los Estancos."}, "geometry": {"type": "Point", "coordinates": [-13.9123, 28.5287, 208]}},
+    {"type": "Feature", "properties": {"tipo": "hito", "nombre": "Tetir", "descripcion": "Final de la ruta, en el pueblo de Tetir."}, "geometry": {"type": "Point", "coordinates": [-13.9336, 28.5318, 282]}}
+  ]
+}
